@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Platform\GamePlatform.Desktop.cs" />
     <Compile Include="Platform\GraphicsDeviceManager.WinRT.cs" />
+	<Compile Include="Platform\Graphics\TextureExternal.DirectX.cs" />
     <Compile Include="Platform\Graphics\Texture2D.StbSharp.cs" />
     <Compile Include="Platform\Input\GamePad.UWP.cs" />
     <Compile Include="Platform\Input\InputKeyEventArgs.cs" />

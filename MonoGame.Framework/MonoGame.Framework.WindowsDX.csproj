@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="Platform\GamePlatform.Desktop.cs" />
     <Compile Include="Platform\Graphics\SwapChainRenderTarget.cs" />
+	<Compile Include="Platform\Graphics\TextureExternal.DirectX.cs" />
     <Compile Include="Platform\Graphics\Texture2D.StbSharp.cs" />
     <Compile Include="Platform\Input\GamePad.XInput.cs" />
     <Compile Include="Platform\Input\InputKeyEventArgs.cs" />
