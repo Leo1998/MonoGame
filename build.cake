@@ -181,14 +181,14 @@ Task("BuildTools")
 
     PackDotnet("Tools/MonoGame.Content.Builder.Task/MonoGame.Content.Builder.Task.csproj");
 
-    PackDotnet("Tools/MonoGame.Packaging.Flatpak/MonoGame.Packaging.Flatpak.csproj");
+    //PackDotnet("Tools/MonoGame.Packaging.Flatpak/MonoGame.Packaging.Flatpak.csproj");
     
-    var versionReg = @"<key>CFBundleShortVersionString<\/key>\s*<string>([^\s]*)<\/string>";
-    var plistPath = "Tools/MonoGame.Content.Builder.Editor/Info.plist";
-    var newVersion = "<key>CFBundleShortVersionString</key>\n\t<string>" + version + "</string>";
-    ReplaceRegexInFiles(plistPath, versionReg, newVersion, System.Text.RegularExpressions.RegexOptions.Singleline);
+    //var versionReg = @"<key>CFBundleShortVersionString<\/key>\s*<string>([^\s]*)<\/string>";
+    //var plistPath = "Tools/MonoGame.Content.Builder.Editor/Info.plist";
+    //var newVersion = "<key>CFBundleShortVersionString</key>\n\t<string>" + version + "</string>";
+    //ReplaceRegexInFiles(plistPath, versionReg, newVersion, System.Text.RegularExpressions.RegexOptions.Singleline);
     
-    PackDotnet("Tools/MonoGame.Content.Builder.Editor/MonoGame.Content.Builder.Editor.csproj");
+    //PackDotnet("Tools/MonoGame.Content.Builder.Editor/MonoGame.Content.Builder.Editor.csproj");
 });
 
 Task("TestTools")
@@ -254,10 +254,10 @@ Task("BuildAll")
     .IsDependentOn("BuildTools");
 
 Task("Pack")
-    .IsDependentOn("BuildAll")
-    .IsDependentOn("PackDotNetTemplates")
-    .IsDependentOn("PackVSMacTemplates")
-    .IsDependentOn("PackVSTemplates");
+    .IsDependentOn("BuildAll");
+    //.IsDependentOn("PackDotNetTemplates")
+    //.IsDependentOn("PackVSMacTemplates")
+    //.IsDependentOn("PackVSTemplates");
 
 Task("Test")
     .IsDependentOn("TestWindowsDX")
