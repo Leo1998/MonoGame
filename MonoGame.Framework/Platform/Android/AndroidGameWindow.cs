@@ -31,7 +31,7 @@ namespace Microsoft.Xna.Framework
             Resumer = resumer;
         }
 
-        public AndroidGameWindow(AndroidGameActivity activity, Game game)
+        public AndroidGameWindow(Android.App.Activity activity, Game game)
         {
             _game = game;
 
@@ -60,7 +60,7 @@ namespace Microsoft.Xna.Framework
             _clientBounds = new Rectangle(0, 0, size.X, size.Y);
             
             GameView = new MonoGameAndroidGameView(context, this, _game);
-            GameView.RenderOnUIThread = Game.Activity.RenderOnUIThread;
+            GameView.RenderOnUIThread = true;
             GameView.RenderFrame += OnRenderFrame;
             GameView.UpdateFrame += OnUpdateFrame;
 

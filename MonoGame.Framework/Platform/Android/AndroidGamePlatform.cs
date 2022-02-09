@@ -15,7 +15,6 @@ namespace Microsoft.Xna.Framework
             : base(game)
         {
             System.Diagnostics.Debug.Assert(Game.Activity != null, "Must set Game.Activity before creating the Game instance");
-            Game.Activity.Game = Game;
             AndroidGameActivity.Paused += Activity_Paused;
             AndroidGameActivity.Resumed += Activity_Resumed;
 
@@ -122,7 +121,7 @@ namespace Microsoft.Xna.Framework
             {
                 IsActive = true;
                 _gameWindow.GameView.Resume();
-                if (_MediaPlayer_PrevState == MediaState.Playing && Game.Activity.AutoPauseAndResumeMediaPlayer)
+                if (_MediaPlayer_PrevState == MediaState.Playing)
                     MediaPlayer.Resume();
                 if (!_gameWindow.GameView.IsFocused)
                     _gameWindow.GameView.RequestFocus();
@@ -139,8 +138,7 @@ namespace Microsoft.Xna.Framework
                 _MediaPlayer_PrevState = MediaPlayer.State;
                 _gameWindow.GameView.Pause();
                 _gameWindow.GameView.ClearFocus();
-                if (Game.Activity.AutoPauseAndResumeMediaPlayer)
-                    MediaPlayer.Pause();
+                MediaPlayer.Pause();
             }
         }
 
